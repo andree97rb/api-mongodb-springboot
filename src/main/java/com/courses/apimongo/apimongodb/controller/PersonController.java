@@ -25,13 +25,12 @@ public class PersonController {
 
     @GetMapping("/people/{id}")
     public Person findById(@PathVariable String id){
-        return personService.findById(id).orElse(null);
+        return personService.findById(id).get();
     }
 
     @DeleteMapping("/people/{id}")
     public void deleteById(@PathVariable String id){
         personService.deleteById(id);
-
     }
 
     @PutMapping("/people/{id}")
